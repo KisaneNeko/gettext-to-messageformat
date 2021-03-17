@@ -17,7 +17,7 @@
     "node": ">=6.0"
   },
   "dependencies": {
-    "gettext-parser": "^1.4.0"
+    "gettext-parser": "^2.1.0"
   },
   "devDependencies": {
     "messageformat": "^2.3.0"
