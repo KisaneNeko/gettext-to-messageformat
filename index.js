@@ -1,4 +1,3 @@
-const { mo, po } = require('gettext-parser')
 const getPluralFunction = require('./plural-forms')
 
 const defaultOptions = {
@@ -65,9 +64,9 @@ const getMessageFormat = (
   return msgstr[0]
 }
 
-const convert = (parse, input, options) => {
+const convert = (input, options) => {
   options = Object.assign({}, defaultOptions, options)
-  const { headers, translations } = parse(input, options.defaultCharset)
+  const { headers, translations } = input;
   if (!options.pluralFunction) {
     options.pluralFunction = getPluralFunction(headers['plural-forms'])
   }
@@ -89,6 +88,5 @@ const convert = (parse, input, options) => {
 }
 
 module.exports = {
-  parseMo: (input, options) => convert(mo.parse, input, options),
-  parsePo: (input, options) => convert(po.parse, input, options)
+  parseJson: (input, options) => convert(input, options),
 }
