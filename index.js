@@ -56,11 +56,11 @@ const getMessageFormat = (
     }, str)
   ))
   if (msgid_plural) {
-    const m = msgid_plural.match(pluralVariablePattern)
-    const pv = m && m[1] || '0'
+    const pv = 'pluralValue';
     const pc = pluralFunction.cardinal.map((c, i) => `${c}{${msgstr[i]}}`)
     return `{${pv}, plural, ${pc.join(' ')}}`
   }
+
   return msgstr[0]
 }
 
