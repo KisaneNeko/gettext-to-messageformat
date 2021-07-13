@@ -43,6 +43,7 @@ const getPluralFunction = (pluralForms) => {
   if (!nplurals || !plural) throw new Error('Invalid plural-forms: ' + pluralForms)
   const pluralFunc = new Function('n', `return 'p' + Number(${plural})`)
   pluralFunc.cardinal = new Array(nplurals).fill().map((_, i) => 'p' + i)
+  pluralFunc.stringifiedFunc = `function anonymous(n) { return 'p' + Number((n != 1)) }`;
   return pluralFunc
 }
 
